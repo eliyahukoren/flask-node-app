@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock%}
+
+{% block content %}
+
+<form method="POST" autocomplete="off">
+    <h3 align="center">Login</h3>
+    
+    <div class="mb-3">
+        <label for="email" class="form-label">Email Address</label>
+        <input 
+            autocomplete="off" 
+            readonly 
+            onfocus="this.removeAttribute('readonly');"
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter email address" 
+            class="form-control"
+        >
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input 
+            autocomplete="new-password"
+            type="password" 
+            id="password"
+            name="password"
+            placeholder="Enter password"
+            class="form-control"
+        >
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+</form>
+
+
+{% endblock %}
