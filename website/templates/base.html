@@ -37,10 +37,19 @@
         </div>
     </nav>
 
-    {# alert alert-danger #}
-    <div class="alert alert-success" role="alert">
-        A simple success alert—check it out!
-    </div>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for message in messages %}
+
+                <div 
+                    class="alert {% if message[0] == 'error' %} alert-danger {% else %} alert-success {% endif %} alert-dismissible fade show" role="alert">
+                    {{ message[1] }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
     <div class="container">
         {% block content %}{% endblock %}
