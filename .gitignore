@@ -3,3 +3,4 @@ __pycache__
 instruction.txt
 Readme.md
 *.db
+instance/
