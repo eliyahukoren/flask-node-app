@@ -4,3 +4,4 @@ instruction.txt
 Readme.md
 *.db
 instance/
+.DS_Store
