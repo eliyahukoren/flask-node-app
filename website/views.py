@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from .models import Note, User
 from . import db
 import json
 
@@ -37,3 +37,8 @@ def delete_note():
             db.session.commit()
     
     return jsonify({})
+
+# def delete_user():
+    # users = User.query.filter_by(id=8).first()
+    # db.session.delete(users)
+    # db.session.commit()

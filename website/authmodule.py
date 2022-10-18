@@ -21,8 +21,8 @@ SUCCESS_SIGNUP_MESSAGE = 'Account created.'
 SUCCESS_LOGIN_MESSAGE = 'Logged in successfully!'
 
 
-def get_user(email):
-    return User.query.filter_by(email=email).first()
+def get_user_from_request():
+    return User.query.filter_by(email=request.form.get('email')).first()
 
 
 def login():
@@ -31,7 +31,7 @@ def login():
         check_password=True,
         password=request.form.get('password')
     ):
-        login_user(get_user(request.form.get('email')), remember=True)
+        login_user(get_user_from_request(), remember=True)
         flash(SUCCESS_LOGIN_MESSAGE, category='success')
         return True
     else:
@@ -43,7 +43,7 @@ def sign_up():
         check_sign_up_data(data=data)
         create_new_user(data=data)
         flash(SUCCESS_SIGNUP_MESSAGE, category="success")
-        login_user(get_user(data['email']), remember=True)
+        login_user(get_user_from_request(), remember=True)
         return True
     except ValueError as message:
         flash(str(message), category="error")
