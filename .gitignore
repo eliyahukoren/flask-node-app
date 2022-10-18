@@ -1,7 +1,6 @@
 __pycache__
 .idea
 instruction.txt
-Readme.md
 *.db
 instance/
 .DS_Store
